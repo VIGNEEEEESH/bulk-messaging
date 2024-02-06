@@ -5,6 +5,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 const WhatsApp = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [image, setImage] = useState(null);
+  const [pdf, setPdf] = useState(null);
   const [contacts, setContacts] = useState(null);
   const [text, setMessage] = useState("");
   const [csvFile, setCsvFile] = useState(null);
@@ -102,6 +103,9 @@ const WhatsApp = () => {
       if (selectedOption === "image" || selectedOption === "imageText") {
         formData.append("image", image);
       }
+      if (selectedOption === "pdf") {
+        formData.append("pdf", pdf);
+      }
 
       if (csvFile) {
         const csvData = await parseCsvData(csvFile);
@@ -116,7 +120,7 @@ const WhatsApp = () => {
           body: formData,
         }
       );
-
+      console.log(formData);
       if (response.ok) {
         console.log("Form data sent successfully");
         message.success(
@@ -145,6 +149,11 @@ const WhatsApp = () => {
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     setImage(file);
+  };
+  const handlePdfUpload = (e) => {
+    const file = e.target.files[0];
+    setPdf(file);
+    console.log("Selected PDF:", file);
   };
 
   const handleContacts = (e) => {
@@ -190,6 +199,18 @@ const WhatsApp = () => {
               <label htmlFor="imageOption" className="mr-4">
                 Image
               </label>
+              <input
+                type="radio"
+                id="pdfOption" // Updated ID
+                value="pdf"
+                checked={selectedOption === "pdf"}
+                onChange={() => handleOptionChange("pdf")} // Updated onChange function
+                className="mr-2"
+              />
+              <label htmlFor="pdfOption" className="mr-4">
+                {" "}
+                PDF + text
+              </label>
 
               <input
                 type="radio"
@@ -199,6 +220,7 @@ const WhatsApp = () => {
                 onChange={() => handleOptionChange("imageText")}
                 className="mr-2"
               />
+
               <label htmlFor="imageTextOption" className="mr-4">
                 Image + Text
               </label>
@@ -225,6 +247,28 @@ const WhatsApp = () => {
                 accept="image/*"
                 onChange={handleImageUpload}
                 className="mb-4"
+              />
+            </div>
+          )}
+          {selectedOption === "pdf" && (
+            <div>
+              <label className="block text-lg font-medium text-gray-700 mb-2">
+                Upload Pdf:
+              </label>
+              <input
+                type="file"
+                accept=".pdf"
+                onChange={handlePdfUpload}
+                className="mb-4"
+              />
+              <label className="block text-lg font-medium text-gray-700 mb-2">
+                Enter Text:
+              </label>
+              <textarea
+                rows="4"
+                value={text}
+                onChange={handleMessageChange}
+                className="w-full p-2 border border-gray-300 rounded-md mb-4"
               />
             </div>
           )}

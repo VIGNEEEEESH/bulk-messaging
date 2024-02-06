@@ -1,5 +1,5 @@
 // Navbar.js
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -26,13 +26,13 @@ const Navbar = () => {
             </span>
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <a href='/signin'>
-            <button
-              type="button"
-              className="text-white bg-customGreen hover:bg-customGreen focus:ring-4 focus:outline-none focus:ring-customGreen font-medium rounded-lg text-sm px-4 py-2 text-center"
-            >
-              Get started
-            </button>
+            <a href="/signin">
+              <button
+                type="button"
+                className="text-white bg-customGreen hover:bg-customGreen focus:ring-4 focus:outline-none focus:ring-customGreen font-medium rounded-lg text-sm px-4 py-2 text-center"
+              >
+                Get started
+              </button>
             </a>
             <button
               onClick={toggleMenu}
@@ -61,7 +61,7 @@ const Navbar = () => {
           </div>
           <div
             className={`${
-              isMenuOpen ? 'block' : 'hidden'
+              isMenuOpen ? "block" : "hidden"
             } items-center justify-between w-full md:flex md:w-auto md:order-1`}
             id="navbar-sticky"
           >
@@ -75,7 +75,7 @@ const Navbar = () => {
                   Home
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/instructions"
                   className="block py-2 px-3 text-white bg-customGreen rounded md:bg-transparent md:text-customGreen md:p-0"
@@ -92,7 +92,7 @@ const Navbar = () => {
                 >
                   Pricing
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/contact"

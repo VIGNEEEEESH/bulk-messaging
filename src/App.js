@@ -20,11 +20,11 @@ function App({ qrCodeValue }) {
         <Routes>
           <Route path="/" element={<Home />} exact />
           <Route path="/Adashboard" element={<ADashboard />} exact />
-          <Route path="/pricing" element={<Pricing />} exact />
+          {/* <Route path="/pricing" element={<Pricing />} exact /> */}
           {/* <Route path="/instructions" element={<Contact />} exact /> */}
           <Route path="/contact" element={<Contact />} exact />
           <Route path="/signin" element={<Login />} exact />
-          <Route path="*" element={<Errorpage />} />
+
           <Route path="/Cdashboard" element={<CDashboard />} exact />
         </Routes>
       </React.Fragment>
@@ -34,11 +34,10 @@ function App({ qrCodeValue }) {
       <React.Fragment>
         <Routes>
           <Route path="/" element={<Home />} exact />
-          <Route path="/pricing" element={<Pricing />} exact />
+          {/* <Route path="/pricing" element={<Pricing />} exact /> */}
           {/* <Route path="/instructions" element={<Contact />} exact /> */}
           <Route path="/contact" element={<Contact />} exact />
           <Route path="/Cdashboard" element={<CDashboard />} exact />
-          <Route path="*" element={<Errorpage />} />
         </Routes>
       </React.Fragment>
     );
@@ -47,10 +46,10 @@ function App({ qrCodeValue }) {
       <React.Fragment>
         <Routes>
           <Route path="/" element={<Home />} exact />
-          <Route path="/pricing" element={<Pricing />} exact />
+          {/* <Route path="/pricing" element={<Pricing />} exact /> */}
           {/* <Route path="/instructions" element={<Contact />} exact /> */}
           <Route path="/contact" element={<Contact />} exact />
-          <Route path="*" element={<Errorpage />} />
+
           <Route path="/signin" element={<Login />} exact />
           <Route path="/adminlogin" element={<AdminLogin />} exact />
         </Routes>
